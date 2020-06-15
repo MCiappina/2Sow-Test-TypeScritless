@@ -1,0 +1,30 @@
+{
+  "usuarios": [
+    {
+      "nome": "José Quarenta Mangos",
+      "cpf": "822.840.420-69",
+      "email": "j40mangos@bol.com.br",
+      "endereco": {
+        "cep": 3068020,
+        "rua": "Rua Doutor Ernesto Mariano",
+        "numero": 69,
+        "bairro": "Tatuapé",
+        "cidade": "São Paulo"
+      },
+      "id": 1
+    },
+    {
+      "nome": "Matheus ciappina pereira",
+      "cpf": "456.548.324-87",
+      "email": "matheus.ciappina@gmail.com",
+      "endereco": {
+        "cep": 3360010,
+        "rua": "Rua Saigon",
+        "numero": 243,
+        "bairro": "Vila Formosa",
+        "cidade": "São Paulo"
+      },
+      "id": 2
+    }
+  ]
+}
