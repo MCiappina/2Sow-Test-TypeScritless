@@ -1,3 +1,5 @@
+// TENTAR COM MAP IGUAL O CODIGO DO CONE VITO
+
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -38,15 +40,15 @@ const App = () => {
           render={() => <Login handleSubmit={handleSubmit} />}
         />
         {auth ? (
-          <>
+          <Switch>
             <Route path="/userlist" component={UserList} />
             <Route path="/editscreen" component={EditScreen} />
-          </>
+          </Switch>
         ) : (
           <Redirect to="/" />
         )}
       </Switch>
-      {auth ? <Redirect to="userlist" /> : <Redirect to="/" />}
+      {auth ? <Redirect to="/userlist" /> : <Redirect to="/" />}
     </div>
   );
 };
