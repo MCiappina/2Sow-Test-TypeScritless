@@ -1,15 +1,15 @@
-// GET CEP API
-
 // TOAST SE NAO ACHAR ENDEREÇO PELO CEP?
 
 // TOAST QUANDO MANDAR PRA API
+
+// EDITAR NA API O Q EU SELECIONEI
 
 // ESTILIZAR PARA UPPERCASE
 
 import React, { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import axios from "axios";
-import {  Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 const EditScreen = () => {
   const endpoint = "http://localhost:5000/usuarios";
@@ -84,7 +84,6 @@ const EditScreen = () => {
         <input
           placeholder="Nome"
           required
-          value={stateObject.nome}
           type="text"
           name="nome"
           onChange={handleInputChange}
@@ -93,7 +92,6 @@ const EditScreen = () => {
           placeholder="CPF"
           required
           mask="999.999.999-99"
-          value={stateObject.cpf}
           name="cpf"
           onChange={handleInputChange}
         ></InputMask>
@@ -101,7 +99,7 @@ const EditScreen = () => {
           placeholder="E-mail"
           required
           type="email"
-          value={stateObject.email}
+        
           name="email"
           onChange={handleInputChange}
         ></input>
@@ -121,7 +119,7 @@ const EditScreen = () => {
         <input
           placeholder="Rua"
           required
-          value={stateObject.rua}
+          
           type="text"
           name="rua"         
           onChange={handleInputChange}
@@ -138,7 +136,6 @@ const EditScreen = () => {
         <input
           placeholder="Bairro"
           required
-          value={stateObject.bairro}
           type="text"
           name="bairro"         
           onChange={handleInputChange}
@@ -147,7 +144,6 @@ const EditScreen = () => {
           placeholder="Cidade"
           required
           type="text"
-          value={stateObject.cidade}
           name="cidade"          
           onChange={handleInputChange}
         ></input>

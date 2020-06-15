@@ -1,5 +1,3 @@
-// TENTAR COM MAP IGUAL O CODIGO DO CONE VITO
-
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -10,6 +8,12 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setAuth(true);
+    }
+  }, []);
 
   const authToken = () => Math.random().toString(36).substr(2);
 
@@ -24,12 +28,6 @@ const App = () => {
     localStorage.clear();
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setAuth(true);
-    }
-  }, []);
-
   return (
     <div>
       <Navbar handleLogout={handleLogout} />
@@ -43,7 +41,8 @@ const App = () => {
           <Switch>
             <Route path="/userlist" component={UserList} />
             <Route path="/editscreen" component={EditScreen} />
-          </Switch>
+            </Switch>
+          
         ) : (
           <Redirect to="/" />
         )}
