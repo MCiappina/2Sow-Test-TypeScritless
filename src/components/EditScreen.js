@@ -1,8 +1,6 @@
 // TOAST SE NAO ACHAR ENDEREÇO PELO CEP?
 
-// TOAST QUANDO MANDAR PRA API
-
-// EDITAR NA API O Q EU SELECIONEI
+// TOAST QUANDO MANDAR PRA API E QUANDO EDITAR DENTRO DO .THEN
 
 // ESTILIZAR PARA UPPERCASE
 
@@ -13,16 +11,25 @@ import { Redirect } from "react-router";
 
 const EditScreen = () => {
   const endpoint = "http://localhost:5000/usuarios";
-  const [stateObject, setStateObject] = useState({});
+  const [stateObject, setStateObject] = useState({
+    nome: "",
+    cpf: "",
+    email: "",
+    cep: "",
+    rua: "",
+    bairro: "",
+    cidade: "",
+    id: "",
+  });
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
     setSent(false);
-    if (localStorage.getItem('stateObject')){
-      const info = JSON.parse(localStorage.getItem('stateObject'));
+    if (localStorage.getItem("stateObject")) {
+      const info = JSON.parse(localStorage.getItem("stateObject"));
       setStateObject(info);
     }
-  }, [])
+  }, []);
 
   const objectData = {
     nome: stateObject.nome,
@@ -35,6 +42,7 @@ const EditScreen = () => {
       bairro: stateObject.bairro,
       cidade: stateObject.cidade,
     },
+    id: stateObject.id,
   };
 
   const handleInputChange = (event) => {
@@ -44,46 +52,50 @@ const EditScreen = () => {
     });
   };
 
+  const putToApi = (e) => {
+    e.preventDefault();
+    axios
+    .put(`${endpoint}/${stateObject.id}`, objectData)
+    .then(() => setSent(true))
+    .catch((error) => console.log(error));
+  };
 
   const submitToApi = (e) => {
     e.preventDefault();
     axios
-      .post(endpoint, objectData)
-      .catch((error) => console.log(error));
-    localStorage.setItem('stateObject', JSON.stringify(stateObject));
-    setSent(true);
+    .post(endpoint, objectData)
+    .then(() => setSent(true))
+    .catch((error) => console.log(error));
   };
 
   const preencherCep = () => {
-    if (!/\d{8}/.test(stateObject.cep)){
+    if (!/\d{8}/.test(stateObject.cep)) {
       return null;
     }
     let cepEndpoint = `https://viacep.com.br/ws/${stateObject.cep}/json/`;
-    axios
-      .get(cepEndpoint, { crossdomain: true })
-      .then((response) => {
-        if (response.data.erro) {
-          return null;
-        }
-        else {
-          setStateObject({
-            ...stateObject,
-            rua: response.data.logradouro,
-            bairro: response.data.bairro,
-            cidade: response.data.localidade
-          })
-        }
-      });
+    axios.get(cepEndpoint, { crossdomain: true }).then((response) => {
+      if (response.data.erro) {
+        return null;
+      } else {
+        setStateObject({
+          ...stateObject,
+          rua: response.data.logradouro,
+          bairro: response.data.bairro,
+          cidade: response.data.localidade,
+        });
+      }
+    });
   };
 
   return (
     <div>
-      {sent ? <Redirect to='/userlist'/> : null}
+      {sent ? <Redirect to="/userlist" /> : null}
       <p>EDIT SCREEN</p>
-      <form onSubmit={submitToApi}>
+      <form onSubmit={localStorage.getItem('stateObject') ? putToApi : submitToApi}>
         <input
           placeholder="Nome"
           required
+          value={stateObject.nome}
           type="text"
           name="nome"
           onChange={handleInputChange}
@@ -91,6 +103,7 @@ const EditScreen = () => {
         <InputMask
           placeholder="CPF"
           required
+          value={stateObject.cpf}
           mask="999.999.999-99"
           name="cpf"
           onChange={handleInputChange}
@@ -98,8 +111,8 @@ const EditScreen = () => {
         <input
           placeholder="E-mail"
           required
+          value={stateObject.email}
           type="email"
-        
           name="email"
           onChange={handleInputChange}
         ></input>
@@ -107,11 +120,12 @@ const EditScreen = () => {
           placeholder="CEP"
           required
           mask="99999999"
-          name="cep"         
+          value={String(stateObject.cep)}
+          name="cep"
           onBlur={(e) => {
             handleInputChange(e);
-            if (stateObject.cep.length === 8){
-            return preencherCep();
+            if (stateObject.cep.length === 8) {
+              return preencherCep();
             }
           }}
           onChange={handleInputChange}
@@ -119,42 +133,47 @@ const EditScreen = () => {
         <input
           placeholder="Rua"
           required
-          
+          value={stateObject.rua}
           type="text"
-          name="rua"         
+          name="rua"
           onChange={handleInputChange}
         ></input>
         <InputMask
           placeholder="Número"
           required
           mask="9999"
-          maskPlaceholder=''
+          value={String(stateObject.numero)}
+          maskPlaceholder=""
           type="text"
-          name="numero"          
+          name="numero"
           onChange={handleInputChange}
         ></InputMask>
         <input
           placeholder="Bairro"
           required
+          value={stateObject.bairro}
           type="text"
-          name="bairro"         
+          name="bairro"
           onChange={handleInputChange}
         ></input>
         <input
           placeholder="Cidade"
           required
+          value={stateObject.cidade}
           type="text"
-          name="cidade"          
+          name="cidade"
           onChange={handleInputChange}
         ></input>
         <br />
         <button type="submit">SEND TO API</button>
       </form>
       {Object.keys(stateObject).map((key, i) => {
+        if (i === Object.keys(stateObject).length - 1) {
+          return null;
+        }
         return (
           <div key={i}>
-            <p>{key}</p>{" "}
-            <p>{stateObject[key]}</p>
+            <p>{key}</p> <p>{stateObject[key]}</p>
           </div>
         );
       })}

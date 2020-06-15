@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 const Navbar = ({ handleLogout }) => {
   return (
     <div>
-      <Link style={{ margin: "20px" }} to="/">
-        HOME
-      </Link>
       <Link style={{ margin: "20px" }} to="/userlist">
         USER LIST
       </Link>

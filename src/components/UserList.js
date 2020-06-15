@@ -1,4 +1,4 @@
-// TOAST YOU ARE EDITING??
+// TOAST VOCÊ DELETOU
 
 // BUSCA
 
@@ -15,7 +15,7 @@ const UserList = () => {
 
   useEffect(() => {
     setEdit(false);
-    getApi();
+    setTimeout(getApi(), 300);
     localStorage.removeItem("stateObject");
   }, [loading]);
 
@@ -40,6 +40,7 @@ const UserList = () => {
         numero: item.endereco.numero,
         bairro: item.endereco.bairro,
         cidade: item.endereco.cidade,
+        id: item.id
       };
       localStorage.setItem("stateObject", JSON.stringify(data));
       setEdit(true);
@@ -49,9 +50,7 @@ const UserList = () => {
   };
 
   const handleDeletion = (itemId) => {
-    console.log(itemId);
     axios.delete(`${endpoint}/${itemId.id}`).then((response) => {
-      console.log(response);
       setLoading(true);
     });
   };
@@ -76,9 +75,6 @@ const UserList = () => {
                   return new Promise((resolve) =>  resolve(item))
                 }
                 let x = await argument(e);
-                console.log(x);
-                let highlight = document.getElementById(i);
-                highlight.style.backgroundColor = 'red';
                 handleSelection(x);
               }}
             >

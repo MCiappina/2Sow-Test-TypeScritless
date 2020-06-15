@@ -1,32 +1,6 @@
 {
   "usuarios": [
     {
-      "nome": "Jeribaldo",
-      "cpf": "415.642.418-74",
-      "email": "jimmichie@hotmail.com",
-      "endereco": {
-        "cep": 79103570,
-        "rua": "Rua Ivolândia",
-        "numero": 415,
-        "bairro": "Jardim Aeroporto",
-        "cidade": "Campo Grande"
-      },
-      "id": 1
-    },
-    {
-      "nome": "Jade Dominguez",
-      "cpf": "654.687.218-42",
-      "email": "yenya@verizon.net",
-      "endereco": {
-        "cep": 69303360,
-        "rua": "Rua Pacaraima",
-        "numero": 2454,
-        "bairro": "São Vicente",
-        "cidade": "Boa Vista"
-      },
-      "id": 2
-    },
-    {
       "nome": "Savanna Kumar",
       "cpf": "654.687.456-14",
       "email": "dkrishna@msn.com",
@@ -53,7 +27,7 @@
       "id": 4
     },
     {
-      "nome": "Ioan Derrick",
+      "nome": "AIOA",
       "cpf": "541.432.487-32",
       "email": "speeves@msn.com",
       "endereco": {
@@ -77,19 +51,6 @@
         "cidade": "Boa Vista"
       },
       "id": 6
-    },
-    {
-      "nome": "Jack Lister",
-      "cpf": "654.984.231-84",
-      "email": "scottzed@icloud.com",
-      "endereco": {
-        "cep": 22765680,
-        "rua": "Rua Arapoca",
-        "numero": 784,
-        "bairro": "Gardênia Azul",
-        "cidade": "Rio de Janeiro"
-      },
-      "id": 7
     },
     {
       "nome": "Zidane Buxton",
@@ -131,15 +92,15 @@
       "id": 11
     },
     {
-      "nome": "Esa Squires",
+      "nome": "Elsa Soares",
       "cpf": "567.897.432-18",
       "email": "valdez@optonline.net",
       "endereco": {
-        "cep": 79065080,
-        "rua": "Rua Pariris",
+        "cep": 3360010,
+        "rua": "Rua Saigon",
         "numero": 879,
-        "bairro": "Vila Moreninha II",
-        "cidade": "Campo Grande"
+        "bairro": "Vila Formosa",
+        "cidade": "São Paulo"
       },
       "id": 13
     },
