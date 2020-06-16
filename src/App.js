@@ -1,11 +1,25 @@
 import React, { useState, useEffect} from "react";
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 import { Switch, Route, Redirect} from "react-router-dom";
 
 import Login from "./components/Login";
 import UserList from "./components/UserList";
 import EditScreen from "./components/EditScreen";
 import Navbar from "./components/Navbar";
+
+toast.configure();
+
+const MainWrapper = styled.section`
+width: 100vw;
+height: 100vh;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: ${({ theme }) => theme.colors.main};
+`;
 
 const App = () => {
   const [auth, setAuth] = useState(false);
@@ -16,16 +30,6 @@ const App = () => {
     }
   }, []);
 
-  const MainWrapper = styled.section`
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: ${({ theme }) => theme.colors.main};
-`;
 
   const authToken = () => Math.random().toString(36).substr(2);
 
@@ -33,6 +37,15 @@ const App = () => {
     e.preventDefault();
     localStorage.setItem("token", JSON.stringify(authToken()));
     setAuth(true);
+    toast('🦄 Wow so easy!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   };
 
   const handleLogout = () => {

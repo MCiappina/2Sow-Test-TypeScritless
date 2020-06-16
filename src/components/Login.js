@@ -3,11 +3,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Login = ({ handleSubmit }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const Title = styled.h1`
+const Title = styled.h1`
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
@@ -68,6 +64,11 @@ const Login = ({ handleSubmit }) => {
       color: ${({ theme }) => theme.colors.light};
     }
   `;
+
+
+const Login = ({ handleSubmit }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <Wrapper>
