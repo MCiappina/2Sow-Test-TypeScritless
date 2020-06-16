@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import styled from 'styled-components';
-import { toast } from 'react-toastify';
+import { toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Switch, Route, Redirect} from "react-router-dom";
 
@@ -12,8 +12,8 @@ import Navbar from "./components/Navbar";
 toast.configure();
 
 const MainWrapper = styled.section`
-width: 100vw;
-height: 100vh;
+width: 100%;
+height: 100%;
 margin: 0 auto;
 display: flex;
 flex-direction: column;
@@ -46,6 +46,7 @@ const App = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      transition: Flip,      
       });
   };
 
