@@ -1,34 +1,98 @@
 // TODO ADD TOAST FOR LOGIN
 
 import React, { useState } from "react";
+import styled from "styled-components";
 
 const Login = ({ handleSubmit }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const Title = styled.h1`
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2rem;
+    color: ${({ theme }) => theme.colors.lighter};
+  `;
+
+  const Wrapper = styled.div`
+    width: 25%;
+    margin: 15vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8rem;
+    border-radius: 2rem;
+    border: 0.2rem solid ${({ theme }) => theme.colors.dark};
+    background-color: ${({ theme }) => theme.colors.light};
+  `;
+
+  const Form = styled.form`
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.lighter};
+    font-weight: bold;
+    text-transform: uppercase;
+  `;
+
+  const Label = styled.label`
+    margin: 0.5rem 0;
+    font-size: 2rem;
+  `;
+
+  const Input = styled.input`
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    border: 0.1rem solid ${({ theme }) => theme.colors.dark};
+    height: 3rem;
+    text-align: center;
+  `;
+
+  const SubmitButton = styled.button`
+    margin: 0 auto;
+    margin-top: 2rem;
+    height: 5rem;
+    width: 70%;
+    text-align: center;
+    border-radius: 2rem;
+    border: 0.2rem solid ${({ theme }) => theme.colors.dark};
+    color: ${({ theme }) => theme.colors.lighter};
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    :hover {
+      background-color: ${({ theme }) => theme.colors.lighter};
+      color: ${({ theme }) => theme.colors.light};
+    }
+  `;
+
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>E-mail</label>
-        <input
+    <Wrapper>
+      <Title>Login</Title>
+      <Form onSubmit={handleSubmit}>
+        <Label>E-mail</Label>
+        <Input
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           name="email"
           value={email}
           required
-        ></input>
-        <label>Password</label>
-        <input
+        ></Input>
+        <Label>Password</Label>
+        <Input
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           name="password"
           minLength="4"
           value={password}
           required
-        ></input>
-        <button type="submit">SUBMIT!</button>
-      </form>
-    </div>
+        ></Input>
+        <SubmitButton type="submit">SUBMIT!</SubmitButton>
+      </Form>
+    </Wrapper>
   );
 };
 

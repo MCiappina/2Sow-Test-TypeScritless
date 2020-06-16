@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
-import { Switch, Route, Redirect, useHistory  } from "react-router-dom";
+import styled from 'styled-components';
+import { Switch, Route, Redirect} from "react-router-dom";
 
 import Login from "./components/Login";
 import UserList from "./components/UserList";
@@ -15,15 +16,23 @@ const App = () => {
     }
   }, []);
 
-  const authToken = () => Math.random().toString(36).substr(2);
+  const MainWrapper = styled.section`
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: ${({ theme }) => theme.colors.main};
+`;
 
-  const history = useHistory();
+  const authToken = () => Math.random().toString(36).substr(2);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("token", JSON.stringify(authToken()));
     setAuth(true);
-    history.push('/userlist')
   };
 
   const handleLogout = () => {
@@ -33,7 +42,7 @@ const App = () => {
 
   if (!auth) {
     return (
-      <div>
+      <MainWrapper>
         <Navbar handleLogout={handleLogout} />
         <Switch>
           <Route
@@ -43,11 +52,11 @@ const App = () => {
           />
           <Redirect to='/' />
         </Switch>
-      </div>
+      </MainWrapper>
     );
   } else {
     return (
-      <div>
+      <MainWrapper>
         <Navbar handleLogout={handleLogout} />
         <Redirect to='/userlist' />
         <Switch>
@@ -59,7 +68,7 @@ const App = () => {
           <Route path="/userlist" component={UserList} />
           <Route path="/editscreen" component={EditScreen} />
         </Switch>
-      </div>
+      </MainWrapper>
     );
   }
 };

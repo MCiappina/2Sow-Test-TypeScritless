@@ -1,7 +1,8 @@
 // TOAST VOCÊ DELETOU
 
-import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState, useLayoutEffect } from "react";
+import { Redirect, useHistory } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import axios from "axios";
 
 const UserList = () => {
@@ -10,7 +11,7 @@ const UserList = () => {
   const [loading, setLoading] = useState(true);
   const [edit, setEdit] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setEdit(false);
     setTimeout(getApi(), 300);
     localStorage.removeItem("stateObject");
@@ -26,6 +27,8 @@ const UserList = () => {
       .catch((error) => console.log(error));
   };
 
+  let history = useHistory();
+
   const handleSelection = (item) => {
     if (Object.getOwnPropertyNames(item).length > 0) {
       const data = {
@@ -40,7 +43,7 @@ const UserList = () => {
         id: item.id,
       };
       localStorage.setItem("stateObject", JSON.stringify(data));
-      setEdit(true);
+      history.push("/editscreen");
     }
   };
 
@@ -56,10 +59,10 @@ const UserList = () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       axios
-      .get(endpoint, { params: { q: searchString } })
-      .then((response) => setUserList(response.data))
-      .catch((error) => console.log(error));
-    }, 1000)
+        .get(endpoint, { params: { q: searchString } })
+        .then((response) => setUserList(response.data))
+        .catch((error) => console.log(error));
+    }, 1000);
   };
 
   return (
@@ -76,17 +79,7 @@ const UserList = () => {
             <p style={{ display: "inline-block", margin: "20px" }}>
               {e.endereco.cidade}
             </p>
-            <button
-              onClick={async () => {
-                const argument = (item) => {
-                  return new Promise((resolve) => resolve(item));
-                };
-                let x = await argument(e);
-                handleSelection(x);
-              }}
-            >
-              EDIT ME
-            </button>
+            <button onClick={() => handleSelection(e)}>EDIT ME</button>
             <button onClick={() => handleDeletion(e)}>DELETE ME</button>
           </div>
         );

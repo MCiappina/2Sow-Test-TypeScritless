@@ -1,7 +1,7 @@
 {
   "usuarios": [
     {
-      "nome": "Savanna Kumar",
+      "nome": "Sarva",
       "cpf": "654.687.456-14",
       "email": "dkrishna@msn.com",
       "endereco": {
@@ -27,7 +27,7 @@
       "id": 6
     },
     {
-      "nome": "Zidane Buxton",
+      "nome": "Zidane zINEDINE",
       "cpf": "786.546.732-15",
       "email": "jguyer@mac.com",
       "endereco": {
@@ -77,19 +77,6 @@
         "cidade": "Aracaju"
       },
       "id": 14
-    },
-    {
-      "nome": "Gabigubis",
-      "cpf": "658.457.864-32",
-      "email": "gabigubs@bol.com.br",
-      "endereco": {
-        "cep": 3408000,
-        "rua": "Rua Boa Esperança",
-        "numero": 267,
-        "bairro": "Chácara Santo Antônio (Zona Leste)",
-        "cidade": "São Paulo"
-      },
-      "id": 15
     },
     {
       "nome": "Joshua Quarenta Mangos",
