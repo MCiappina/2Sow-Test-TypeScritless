@@ -41,7 +41,7 @@ const App = () => {
     toast.success('🌱 You are logged in!', {
       position: "bottom-right",
       autoClose: 2200,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
