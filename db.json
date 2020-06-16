@@ -14,33 +14,7 @@
       "id": 3
     },
     {
-      "nome": "Sean Stanton",
-      "cpf": "464.651.324-84",
-      "email": "joglo@comcast.net",
-      "endereco": {
-        "cep": 76870566,
-        "rua": "Rua Santa Catarina",
-        "numero": 2345,
-        "bairro": "Setor 05",
-        "cidade": "Ariquemes"
-      },
-      "id": 4
-    },
-    {
-      "nome": "AIOA",
-      "cpf": "541.432.487-32",
-      "email": "speeves@msn.com",
-      "endereco": {
-        "cep": 92200490,
-        "rua": "Rua São Benedito",
-        "numero": 102,
-        "bairro": "Rio Branco",
-        "cidade": "Canoas"
-      },
-      "id": 5
-    },
-    {
-      "nome": "Kester Rowley",
+      "nome": "Caster Rowley",
       "cpf": "564.842.135-46",
       "email": "thowell@live.com",
       "endereco": {
@@ -92,19 +66,6 @@
       "id": 11
     },
     {
-      "nome": "Elsa Soares",
-      "cpf": "567.897.432-18",
-      "email": "valdez@optonline.net",
-      "endereco": {
-        "cep": 3360010,
-        "rua": "Rua Saigon",
-        "numero": 879,
-        "bairro": "Vila Formosa",
-        "cidade": "São Paulo"
-      },
-      "id": 13
-    },
-    {
       "nome": "Abdirahman Hutton",
       "cpf": "231.846.084-84",
       "email": "grdschl@comcast.net",
@@ -116,6 +77,32 @@
         "cidade": "Aracaju"
       },
       "id": 14
+    },
+    {
+      "nome": "Gabigubis",
+      "cpf": "658.457.864-32",
+      "email": "gabigubs@bol.com.br",
+      "endereco": {
+        "cep": 3408000,
+        "rua": "Rua Boa Esperança",
+        "numero": 267,
+        "bairro": "Chácara Santo Antônio (Zona Leste)",
+        "cidade": "São Paulo"
+      },
+      "id": 15
+    },
+    {
+      "nome": "Joshua Quarenta Mangos",
+      "cpf": "415.678.435-21",
+      "email": "j40mangos@bol.com.br",
+      "endereco": {
+        "cep": 5012010,
+        "rua": "Rua Ministro Gastão Mesquita",
+        "numero": 789,
+        "bairro": "Perdizes",
+        "cidade": "São Paulo"
+      },
+      "id": 16
     }
   ]
 }

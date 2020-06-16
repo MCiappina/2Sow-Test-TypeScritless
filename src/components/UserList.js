@@ -1,7 +1,5 @@
 // TOAST VOCÊ DELETOU
 
-// BUSCA
-
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
@@ -10,7 +8,6 @@ const UserList = () => {
   const endpoint = "http://localhost:5000/usuarios";
   const [userList, setUserList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedUser, setSelectedUser] = useState({});
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
@@ -44,8 +41,6 @@ const UserList = () => {
       };
       localStorage.setItem("stateObject", JSON.stringify(data));
       setEdit(true);
-    } else {
-      alert("SELECT SOMEONE");
     }
   };
 
@@ -84,7 +79,6 @@ const UserList = () => {
             <button
               onClick={async () => {
                 const argument = (item) => {
-                  setSelectedUser(e);
                   return new Promise((resolve) => resolve(item));
                 };
                 let x = await argument(e);

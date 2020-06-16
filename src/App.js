@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { useState, useEffect} from "react";
+import { Switch, Route, Redirect, useHistory  } from "react-router-dom";
 
 import Login from "./components/Login";
 import UserList from "./components/UserList";
@@ -17,10 +17,13 @@ const App = () => {
 
   const authToken = () => Math.random().toString(36).substr(2);
 
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("token", JSON.stringify(authToken()));
     setAuth(true);
+    history.push('/userlist')
   };
 
   const handleLogout = () => {
@@ -28,28 +31,37 @@ const App = () => {
     localStorage.clear();
   };
 
-  return (
-    <div>
-      <Navbar handleLogout={handleLogout} />
-      <Switch>
-        <Route
-          path="/"
-          exact={true}
-          render={() => <Login handleSubmit={handleSubmit} />}
-        />
-        {auth ? (
-          <Switch>
-            <Route path="/userlist" component={UserList} />
-            <Route path="/editscreen" component={EditScreen} />
-            </Switch>
-          
-        ) : (
-          <Redirect to="/" />
-        )}
-      </Switch>
-      {auth ? <Redirect to="/userlist" /> : <Redirect to="/" />}
-    </div>
-  );
+  if (!auth) {
+    return (
+      <div>
+        <Navbar handleLogout={handleLogout} />
+        <Switch>
+          <Route
+            path="/"
+            exact={true}
+            render={() => <Login handleSubmit={handleSubmit} />}
+          />
+          <Redirect to='/' />
+        </Switch>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Navbar handleLogout={handleLogout} />
+        <Redirect to='/userlist' />
+        <Switch>
+          <Route
+            path="/"
+            exact={true}
+            render={() => <Login handleSubmit={handleSubmit} />}
+          />
+          <Route path="/userlist" component={UserList} />
+          <Route path="/editscreen" component={EditScreen} />
+        </Switch>
+      </div>
+    );
+  }
 };
 
 export default App;
