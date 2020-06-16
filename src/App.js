@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Switch, Route, Redirect} from "react-router-dom";
 
 import Login from "./components/Login";
@@ -37,9 +38,9 @@ const App = () => {
     e.preventDefault();
     localStorage.setItem("token", JSON.stringify(authToken()));
     setAuth(true);
-    toast('🦄 Wow so easy!', {
-      position: "top-right",
-      autoClose: 5000,
+    toast.success('🌱 You are logged in!', {
+      position: "bottom-right",
+      autoClose: 2200,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
