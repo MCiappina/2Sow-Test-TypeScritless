@@ -5,3 +5,5 @@ Texto do warning:
 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
 
 A aplicaçao não quebra, mas acusa esse warning.
+
+Pra rodar o projeto tem que rodar json-server --watch db.json --delay 2000 --port 5000.
