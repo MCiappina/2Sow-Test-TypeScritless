@@ -40,7 +40,7 @@ const UserList = () => {
         numero: item.endereco.numero,
         bairro: item.endereco.bairro,
         cidade: item.endereco.cidade,
-        id: item.id
+        id: item.id,
       };
       localStorage.setItem("stateObject", JSON.stringify(data));
       setEdit(true);
@@ -55,10 +55,23 @@ const UserList = () => {
     });
   };
 
+  const handleSearch = (event) => {
+    const searchString = event.target.value;
+    let timeout = null;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      axios
+      .get(endpoint, { params: { q: searchString } })
+      .then((response) => setUserList(response.data))
+      .catch((error) => console.log(error));
+    }, 1000)
+  };
+
   return (
     <div>
       {edit ? <Redirect to="/editscreen" /> : null}
       <p>USER LIST</p>
+      <input onKeyUp={handleSearch} placeholder="SEARCH"></input>
       {userList.map((e, i) => {
         return (
           <div id={i} key={i}>
@@ -69,11 +82,11 @@ const UserList = () => {
               {e.endereco.cidade}
             </p>
             <button
-              onClick={ async () => {
+              onClick={async () => {
                 const argument = (item) => {
                   setSelectedUser(e);
-                  return new Promise((resolve) =>  resolve(item))
-                }
+                  return new Promise((resolve) => resolve(item));
+                };
                 let x = await argument(e);
                 handleSelection(x);
               }}
