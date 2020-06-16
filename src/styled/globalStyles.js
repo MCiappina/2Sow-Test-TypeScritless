@@ -1,9 +1,9 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   html {
-      height: 100%;
-      font-size: 10px;
+    height: fit-content;
+    font-size: 10px;
   }
 
   * {

@@ -1,84 +1,6 @@
 {
   "usuarios": [
     {
-      "nome": "Sarva",
-      "cpf": "654.687.456-14",
-      "email": "dkrishna@msn.com",
-      "endereco": {
-        "cep": 29706805,
-        "rua": "Rua José de Oliveira",
-        "numero": 650,
-        "bairro": "São Pedro",
-        "cidade": "Colatina"
-      },
-      "id": 1
-    },
-    {
-      "nome": "Caster Rowley",
-      "cpf": "564.842.135-46",
-      "email": "thowell@live.com",
-      "endereco": {
-        "cep": 69317295,
-        "rua": "Travessa Canaã",
-        "numero": 25,
-        "bairro": "Alvorada",
-        "cidade": "Boa Vista"
-      },
-      "id": 2
-    },
-    {
-      "nome": "Abdirahman Hutton",
-      "cpf": "231.846.084-84",
-      "email": "grdschl@comcast.net",
-      "endereco": {
-        "cep": 49087593,
-        "rua": "Rua Projetada",
-        "numero": 52,
-        "bairro": "Santos Dumont",
-        "cidade": "Aracaju"
-      },
-      "id": 6
-    },
-    {
-      "nome": "Joshua Quarenta Mangos",
-      "cpf": "415.678.435-21",
-      "email": "j40mangos@bol.com.br",
-      "endereco": {
-        "cep": 5012010,
-        "rua": "Rua Ministro Gastão Mesquita",
-        "numero": 789,
-        "bairro": "Perdizes",
-        "cidade": "São Paulo"
-      },
-      "id": 7
-    },
-    {
-      "nome": "Zidane zINEDINE",
-      "cpf": "786.546.732-15",
-      "email": "jguyer@mac.com",
-      "endereco": {
-        "cep": 78710630,
-        "rua": "Avenida do Bispado",
-        "numero": 655,
-        "bairro": "Vila Planalto",
-        "cidade": "Rondonópolis"
-      },
-      "id": 10
-    },
-    {
-      "nome": "Krishan Espinosa",
-      "cpf": "879.543.548-78",
-      "email": "dougj@verizon.net",
-      "endereco": {
-        "cep": 76873282,
-        "rua": "Alameda do Sabiá",
-        "numero": 45,
-        "bairro": "Setor 02",
-        "cidade": "Ariquemes"
-      },
-      "id": 11
-    },
-    {
       "nome": "Chelsey Reyna",
       "cpf": "654.687.651-34",
       "email": "padme@live.com",
@@ -90,97 +12,6 @@
         "cidade": "Macapá"
       },
       "id": 12
-    },
-    {
-      "nome": "Sarva",
-      "cpf": "654.687.456-14",
-      "email": "dkrishna@msn.com",
-      "endereco": {
-        "cep": 29706805,
-        "rua": "Rua José de Oliveira",
-        "numero": 650,
-        "bairro": "São Pedro",
-        "cidade": "Colatina"
-      },
-      "id": 15
-    },
-    {
-      "nome": "Caster Rowley",
-      "cpf": "564.842.135-46",
-      "email": "thowell@live.com",
-      "endereco": {
-        "cep": 69317295,
-        "rua": "Travessa Canaã",
-        "numero": 25,
-        "bairro": "Alvorada",
-        "cidade": "Boa Vista"
-      },
-      "id": 16
-    },
-    {
-      "nome": "Zidane zINEDINE",
-      "cpf": "786.546.732-15",
-      "email": "jguyer@mac.com",
-      "endereco": {
-        "cep": 78710630,
-        "rua": "Avenida do Bispado",
-        "numero": 655,
-        "bairro": "Vila Planalto",
-        "cidade": "Rondonópolis"
-      },
-      "id": 17
-    },
-    {
-      "nome": "Krishan Espinosa",
-      "cpf": "879.543.548-78",
-      "email": "dougj@verizon.net",
-      "endereco": {
-        "cep": 76873282,
-        "rua": "Alameda do Sabiá",
-        "numero": 45,
-        "bairro": "Setor 02",
-        "cidade": "Ariquemes"
-      },
-      "id": 18
-    },
-    {
-      "nome": "Chelsey Reyna",
-      "cpf": "654.687.651-34",
-      "email": "padme@live.com",
-      "endereco": {
-        "cep": 68908841,
-        "rua": "Avenida dos Cupuaçus",
-        "numero": 87,
-        "bairro": "Infraero",
-        "cidade": "Macapá"
-      },
-      "id": 19
-    },
-    {
-      "nome": "Abdirahman Hutton",
-      "cpf": "231.846.084-84",
-      "email": "grdschl@comcast.net",
-      "endereco": {
-        "cep": 49087593,
-        "rua": "Rua Projetada",
-        "numero": 52,
-        "bairro": "Santos Dumont",
-        "cidade": "Aracaju"
-      },
-      "id": 20
-    },
-    {
-      "nome": "Joshua Quarenta Mangos",
-      "cpf": "415.678.435-21",
-      "email": "j40mangos@bol.com.br",
-      "endereco": {
-        "cep": 5012010,
-        "rua": "Rua Ministro Gastão Mesquita",
-        "numero": 789,
-        "bairro": "Perdizes",
-        "cidade": "São Paulo"
-      },
-      "id": 21
     },
     {
       "nome": "Sarva",
@@ -209,19 +40,6 @@
       "id": 23
     },
     {
-      "nome": "Zidane zINEDINE",
-      "cpf": "786.546.732-15",
-      "email": "jguyer@mac.com",
-      "endereco": {
-        "cep": 78710630,
-        "rua": "Avenida do Bispado",
-        "numero": 655,
-        "bairro": "Vila Planalto",
-        "cidade": "Rondonópolis"
-      },
-      "id": 24
-    },
-    {
       "nome": "Krishan Espinosa",
       "cpf": "879.543.548-78",
       "email": "dougj@verizon.net",
@@ -235,19 +53,6 @@
       "id": 25
     },
     {
-      "nome": "Chelsey Reyna",
-      "cpf": "654.687.651-34",
-      "email": "padme@live.com",
-      "endereco": {
-        "cep": 68908841,
-        "rua": "Avenida dos Cupuaçus",
-        "numero": 87,
-        "bairro": "Infraero",
-        "cidade": "Macapá"
-      },
-      "id": 26
-    },
-    {
       "nome": "Abdirahman Hutton",
       "cpf": "231.846.084-84",
       "email": "grdschl@comcast.net",
@@ -259,19 +64,6 @@
         "cidade": "Aracaju"
       },
       "id": 27
-    },
-    {
-      "nome": "Joshua Quarenta Mangos",
-      "cpf": "415.678.435-21",
-      "email": "j40mangos@bol.com.br",
-      "endereco": {
-        "cep": 5012010,
-        "rua": "Rua Ministro Gastão Mesquita",
-        "numero": 789,
-        "bairro": "Perdizes",
-        "cidade": "São Paulo"
-      },
-      "id": 28
     }
   ]
 }

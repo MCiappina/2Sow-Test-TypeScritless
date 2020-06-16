@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from "react";
-import styled from 'styled-components';
-import { toast, Flip } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Switch, Route, Redirect} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Login from "./components/Login";
 import UserList from "./components/UserList";
@@ -11,15 +11,13 @@ import Navbar from "./components/Navbar";
 
 toast.configure();
 
-const MainWrapper = styled.section`
-width: 100%;
-height: 100%;
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-background: ${({ theme }) => theme.colors.main};
+const MainWrapper = styled.div`
+  min-height: 100vh;
+  height:fit-content;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: ${({ theme }) => theme.colors.main};
 `;
 
 const App = () => {
@@ -31,14 +29,13 @@ const App = () => {
     }
   }, []);
 
-
   const authToken = () => Math.random().toString(36).substr(2);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("token", JSON.stringify(authToken()));
     setAuth(true);
-    toast.success('🌱 You are logged in!', {
+    toast.success("🌱 You are logged in!", {
       position: "bottom-right",
       autoClose: 2200,
       hideProgressBar: true,
@@ -46,8 +43,8 @@ const App = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      transition: Flip,      
-      });
+      transition: Flip,
+    });
   };
 
   const handleLogout = () => {
@@ -65,7 +62,7 @@ const App = () => {
             exact={true}
             render={() => <Login handleSubmit={handleSubmit} />}
           />
-          <Redirect to='/' />
+          <Redirect to="/" />
         </Switch>
       </MainWrapper>
     );
@@ -73,7 +70,7 @@ const App = () => {
     return (
       <MainWrapper>
         <Navbar handleLogout={handleLogout} />
-        <Redirect to='/userlist' />
+        <Redirect to="/userlist" />
         <Switch>
           <Route
             path="/"

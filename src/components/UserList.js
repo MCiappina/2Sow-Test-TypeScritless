@@ -1,11 +1,102 @@
-// TOAST VOCÊ DELETOU
-
 import React, { useState, useLayoutEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { toast } from "react-toastify";
+import styled from "styled-components";
+import { toast, Flip } from "react-toastify";
 import axios from "axios";
 
 import loadingImg from "../resources/giphy.gif";
+import editIcon from "../resources/editIcon.png";
+import deleteIcon from "../resources/deleteIcon.png";
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const OutterWrapper = styled.div`
+  margin: 0 auto;
+  margin-top: 9vh;
+  margin-bottom: 5vh;
+  padding: 3vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 5rem;
+  background: ${({ theme }) => theme.colors.light};
+`;
+
+const Title = styled.h1`
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+  color: ${({ theme }) => theme.colors.lighter};
+`;
+
+const SearchInput = styled.input`
+  margin: 0.7rem 0;
+  border-radius: 0.5rem;
+  border: 0.1rem solid ${({ theme }) => theme.colors.dark};
+  height: 3rem;
+  text-align: center;
+`;
+
+const TableWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.2rem;
+  padding: 1rem;
+  border-top: 1px outset ${({ theme }) => theme.colors.dark};
+  border-bottom: 1px outset ${({ theme }) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.light};
+  h2 {
+    font-size: 2rem;
+    color: ${({ theme }) => theme.colors.lighter};
+    margin: 1rem
+  }
+`;
+
+const UserWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.2rem;
+  padding: 1rem;
+  border-top: 1px outset ${({ theme }) => theme.colors.dark};
+  border-bottom: 1px outset ${({ theme }) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.dark};
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-left: 1px outset ${({ theme }) => theme.colors.text};
+    border-right: 1px outset ${({ theme }) => theme.colors.text};
+    margin: 0 2rem;
+  }
+  :hover {
+    background-color: ${({ theme }) => theme.colors.main};
+  }
+`;
+
+const UserButtons = styled.button`
+  width: fit-content;
+  height: fit-content;
+  border-radius: 4px;
+  img {
+    padding: 4px;
+    width: 2rem;
+    height: 2rem;
+  }
+  :hover {
+    background-color: ${({ theme }) => theme.colors.darker};
+  }
+`;
 
 const UserList = () => {
   const endpoint = "http://localhost:5000/usuarios";
@@ -51,14 +142,15 @@ const UserList = () => {
 
   const handleDeletion = (itemId) => {
     axios.delete(`${endpoint}/${itemId.id}`).then((response) => {
-      toast.warn(`❗ You deleted ${itemId.nome} `, {
+      toast.error(`❗ You deleted ${itemId.nome}! `, {
         position: "bottom-right",
         autoClose: 2200,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        transition: Flip,
       });
       setDeleted(true);
     });
@@ -78,35 +170,39 @@ const UserList = () => {
 
   if (loading) {
     return (
-      <div style={{ height: "100vh", width: "100vw" }}>
+      <LoadingWrapper>
         <img alt="loading" src={loadingImg} />
-      </div>
+      </LoadingWrapper>
     );
   } else {
     return (
-      <div style={{marginTop: '5.5vh'}}>
+      <OutterWrapper>
         {edit ? <Redirect to="/editscreen" /> : null}
-        <p>USER LIST</p>
-        <input onKeyUp={handleSearch} placeholder="SEARCH"></input>
+        <Title>USER LIST</Title>
+        <SearchInput onKeyUp={handleSearch} placeholder="SEARCH"></SearchInput>
+        <TableWrapper>
+          <h2>NOME</h2>
+          <h2>CPF</h2>
+          <h2>E-MAIL</h2>
+          <h2>CIDADE</h2>
+        </TableWrapper>
         {userList.map((e, i) => {
           return (
-            <div id={i} key={i}>
-              <p style={{ display: "inline-block", margin: "20px" }}>
-                {e.nome}
-              </p>
-              <p style={{ display: "inline-block", margin: "20px" }}>{e.cpf}</p>
-              <p style={{ display: "inline-block", margin: "20px" }}>
-                {e.email}
-              </p>
-              <p style={{ display: "inline-block", margin: "20px" }}>
-                {e.endereco.cidade}
-              </p>
-              <button onClick={() => handleSelection(e)}>EDIT ME</button>
-              <button onClick={() => handleDeletion(e)}>DELETE ME</button>
-            </div>
+            <UserWrapper id={i} key={i}>
+              <p>{e.nome}</p>
+              <p>{e.cpf}</p>
+              <p>{e.email}</p>
+              <p>{e.endereco.cidade}</p>
+              <UserButtons onClick={() => handleSelection(e)}>
+                <img alt="edit" src={editIcon} />
+              </UserButtons>
+              <UserButtons onClick={() => handleDeletion(e)}>
+                <img alt="edit" src={deleteIcon} />
+              </UserButtons>
+            </UserWrapper>
           );
         })}
-      </div>
+      </OutterWrapper>
     );
   }
 };

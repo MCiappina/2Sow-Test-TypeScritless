@@ -1,5 +1,3 @@
-// TODO ADD TOAST FOR LOGIN
-
 import React, { useState } from "react";
 import styled from "styled-components";
 
