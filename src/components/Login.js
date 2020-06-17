@@ -38,6 +38,7 @@ const Form = styled.form`
 const Label = styled.label`
   margin: 0.5rem 0;
   font-size: 2rem;
+  color: ${({ theme }) => theme.colors.light};
 `;
 
 const Input = styled.input`

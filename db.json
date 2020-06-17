@@ -1,17 +1,95 @@
 {
   "usuarios": [
     {
-      "nome": "MATHEUS CIA",
-      "cpf": "654.984.316-54",
-      "email": "matheus.ciappina@gmail.com",
+      "nome": "André",
+      "cpf": "546.121.357-62",
+      "email": "andre@tabe.com",
       "endereco": {
-        "cep": 3360010,
-        "rua": "Rua Saigon",
-        "numero": 6894,
-        "bairro": "Vila Formosa",
-        "cidade": "São Paulo"
+        "cep": 65055477,
+        "rua": "Travessa da Rua Um",
+        "numero": 4687,
+        "bairro": "Vila Roseana Sarney",
+        "cidade": "São Luís"
       },
-      "id": 33
+      "id": 1
+    },
+    {
+      "nome": "Nadine Pêcego Craveiro",
+      "cpf": "465.484.321-84",
+      "email": "gilmoure@yahoo.com",
+      "endereco": {
+        "cep": 79084283,
+        "rua": "Travessa Kaori Ishi",
+        "numero": 454,
+        "bairro": "Conjunto Aero Rancho",
+        "cidade": "Campo Grande"
+      },
+      "id": 3
+    },
+    {
+      "nome": "Juan Casqueira Cirne",
+      "cpf": "468.425.484-32",
+      "email": "techie@gmail.com",
+      "endereco": {
+        "cep": 31620265,
+        "rua": "Rua Wagner Melo Mendes",
+        "numero": 145,
+        "bairro": "Europa",
+        "cidade": "Belo Horizonte"
+      },
+      "id": 4
+    },
+    {
+      "nome": "Maimuna Cabeça Matoso",
+      "cpf": "222.135.421-51",
+      "email": "rcwil@yahoo.com",
+      "endereco": {
+        "cep": 60830605,
+        "rua": "Rua Egídio de Oliveira",
+        "numero": 21,
+        "bairro": "José de Alencar",
+        "cidade": "Fortaleza"
+      },
+      "id": 5
+    },
+    {
+      "nome": "Laryssa Aveiro Robalo",
+      "cpf": "545.231.454-21",
+      "email": "martyloo@hotmail.com",
+      "endereco": {
+        "cep": 79640250,
+        "rua": "Avenida Angelina Tebet",
+        "numero": 87,
+        "bairro": "Santa Luzia",
+        "cidade": "Três Lagoas"
+      },
+      "id": 6
+    },
+    {
+      "nome": "Absalão Vilante Falcão",
+      "cpf": "432.415.842-15",
+      "email": "jnolan@verizon.net",
+      "endereco": {
+        "cep": 23052460,
+        "rua": "Praça da Normalista",
+        "numero": 987,
+        "bairro": "Campo Grande",
+        "cidade": "Rio de Janeiro"
+      },
+      "id": 7
+    },
+    {
+      "nome": "Carminho Carvalheiro Ribas",
+      "cpf": "548.645.484-21",
+      "email": "fmerges@att.net",
+      "endereco": {
+        "cep": 21031290,
+        "rua": "Rua Serra Freire",
+        "numero": 32,
+        "bairro": "Ramos",
+        "cidade": "Rio de Janeiro"
+      },
+      "id": 8
     }
   ]
 }
