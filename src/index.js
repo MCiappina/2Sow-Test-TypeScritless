@@ -7,6 +7,7 @@ import App from "./App";
 import GlobalStyle from "./styled/globalStyles";
 import Theme from "./styled/theme";
 import './index.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const root = document.getElementById("root");
 

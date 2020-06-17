@@ -56,7 +56,7 @@ const Navbar = ({ handleLogout }) => {
         <Link to="/userlist">USER LIST</Link>|
         <Link to="/editscreen">EDIT SCREEN</Link>
       </NavLink>
-      <TitleSeeds>🌱 seedS</TitleSeeds>
+      <TitleSeeds><span role="img" aria-label='seed'>🌱</span> seedS</TitleSeeds>
       <LogoutContainer>
         <LogoutButton onClick={handleLogout}>LOGOUT</LogoutButton>
       </LogoutContainer>

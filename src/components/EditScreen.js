@@ -1,13 +1,73 @@
-// TOAST SE NAO ACHAR ENDEREÇO PELO CEP?
-
 // TOAST QUANDO MANDAR PRA API E QUANDO EDITAR DENTRO DO .THEN
-
-// ESTILIZAR PARA UPPERCASE
 
 import React, { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import axios from "axios";
+import styled from "styled-components";
+import { toast, Flip } from "react-toastify";
 import { Redirect } from "react-router";
+
+import useFullPageLoader from "../hooks/useFullPageLoader";
+
+const OutterWrapper = styled.div`
+  margin: 0 auto;
+  margin-top: 9vh;
+  padding: 0 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 5rem;
+  background: ${({ theme }) => theme.colors.light};
+`;
+
+const Title = styled.h1`
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+  color: ${({ theme }) => theme.colors.lighter};
+`;
+
+const Form = styled.form`
+  margin-bottom: 3rem;
+  width: 40%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: ${({ theme }) => theme.colors.dark};
+  border-radius: 1rem;
+  input {
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    border: 0.1rem solid ${({ theme }) => theme.colors.dark};
+    height: 3rem;
+    outline: none;
+    text-align: center;
+  }
+`;
+const SubmitButton = styled.button`
+  margin: 0 auto;
+  margin-top: 2rem;
+  height: 5rem;
+  width: 70%;
+  text-align: center;
+  border-radius: 2rem;
+  border: 0.2rem solid ${({ theme }) => theme.colors.dark};
+  font-size: 2rem;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  :hover {
+    background-color: ${({ theme }) => theme.colors.darker};
+    color: ${({ theme }) => theme.colors.light};
+  }
+`;
 
 const EditScreen = () => {
   const endpoint = "http://localhost:5000/usuarios";
@@ -22,6 +82,7 @@ const EditScreen = () => {
     id: "",
   });
   const [sent, setSent] = useState(false);
+  const [loader, showLoader, hideLoader] = useFullPageLoader();
 
   useEffect(() => {
     setSent(false);
@@ -54,18 +115,46 @@ const EditScreen = () => {
 
   const putToApi = (e) => {
     e.preventDefault();
+    showLoader();
     axios
-    .put(`${endpoint}/${stateObject.id}`, objectData)
-    .then(() => setSent(true))
-    .catch((error) => console.log(error));
+      .put(`${endpoint}/${stateObject.id}`, objectData)
+      .then(() => {
+        hideLoader();
+        setSent(true);
+        toast.success(`🌻 You edited ${objectData.nome}! `, {
+          position: "bottom-right",
+          autoClose: 2200,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          transition: Flip,
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   const submitToApi = (e) => {
+    showLoader();
     e.preventDefault();
     axios
-    .post(endpoint, objectData)
-    .then(() => setSent(true))
-    .catch((error) => console.log(error));
+      .post(endpoint, objectData)
+      .then(() => {
+        setSent(true);
+        hideLoader();
+        toast.success(`🌻 You submitted ${objectData.nome}! `, {
+          position: "bottom-right",
+          autoClose: 2200,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          transition: Flip,
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   const preencherCep = () => {
@@ -73,25 +162,40 @@ const EditScreen = () => {
       return null;
     }
     let cepEndpoint = `https://viacep.com.br/ws/${stateObject.cep}/json/`;
-    axios.get(cepEndpoint, { crossdomain: true }).then((response) => {
-      if (response.data.erro) {
-        return null;
-      } else {
-        setStateObject({
-          ...stateObject,
-          rua: response.data.logradouro,
-          bairro: response.data.bairro,
-          cidade: response.data.localidade,
-        });
-      }
-    });
+    axios
+      .get(cepEndpoint, { crossdomain: true })
+      .then((response) => {
+        if (response.data.erro) {
+          toast.error(`😵 Esse não é um CEP válido! `, {
+            position: "bottom-right",
+            autoClose: 2200,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            transition: Flip,
+          });
+          return null;
+        } else {
+          setStateObject({
+            ...stateObject,
+            rua: response.data.logradouro,
+            bairro: response.data.bairro,
+            cidade: response.data.localidade,
+          });
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
-    <div>
+    <OutterWrapper>
       {sent ? <Redirect to="/userlist" /> : null}
-      <p>EDIT SCREEN</p>
-      <form onSubmit={localStorage.getItem('stateObject') ? putToApi : submitToApi}>
+      <Title>EDIT SCREEN</Title>
+      <Form
+        onSubmit={localStorage.getItem("stateObject") ? putToApi : submitToApi}
+      >
         <input
           placeholder="Nome"
           required
@@ -165,19 +269,10 @@ const EditScreen = () => {
           onChange={handleInputChange}
         ></input>
         <br />
-        <button type="submit">SEND TO API</button>
-      </form>
-      {Object.keys(stateObject).map((key, i) => {
-        if (i === Object.keys(stateObject).length - 1) {
-          return null;
-        }
-        return (
-          <div key={i}>
-            <p>{key}</p> <p>{stateObject[key]}</p>
-          </div>
-        );
-      })}
-    </div>
+        <SubmitButton type="submit">SEND!</SubmitButton>
+      </Form>
+      {loader}
+    </OutterWrapper>
   );
 };
 

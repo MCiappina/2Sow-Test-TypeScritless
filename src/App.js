@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { toast, Flip } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 
