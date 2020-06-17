@@ -1,9 +1,27 @@
-O bug acontece quando se clica no botão "Edit" no component UserList.
+# 2SOW Challenge
 
-Texto do warning:
+## Objective
 
-Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+Develop an app for user registration according to these specifications: https://2sow.github.io/vaga-frontend/.
 
-A aplicaçao não quebra, mas acusa esse warning.
+## Instructions
 
-Pra rodar o projeto tem que rodar json-server --watch db.json --delay 2000 --port 5000.
+To run this project:
+ 1. Download this repository.
+ 2. Type the following commands using the terminal, inside the project folder
+ 3. ```npm install -g json-server ```
+ 4. ```npm install```
+ 5. ```npm start```
+ 6. ```json-server --watch db.json --delay 2000 --port 5000```
+ 7. Finally run ```npm start```.
+ 
+ ## Technologies Used
+
+- Node.js
+- React (with hooks)
+- Styled Components
+- CSS
+- HTML
+- Axios
+- React-Router
+- React-Toastify
