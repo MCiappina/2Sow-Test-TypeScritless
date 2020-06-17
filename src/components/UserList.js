@@ -7,6 +7,7 @@ import axios from "axios";
 import loadingImg from "../resources/giphy.gif";
 import editIcon from "../resources/editIcon.png";
 import deleteIcon from "../resources/deleteIcon.png";
+import useFullPageLoader from "../hooks/useFullPageLoader";
 
 const LoadingWrapper = styled.div`
   display: flex;
@@ -58,7 +59,7 @@ const TableWrapper = styled.div`
   h2 {
     font-size: 2rem;
     color: ${({ theme }) => theme.colors.lighter};
-    margin: 1rem
+    margin: 1rem;
   }
 `;
 
@@ -70,6 +71,7 @@ const UserWrapper = styled.div`
   padding: 1rem;
   border-top: 1px outset ${({ theme }) => theme.colors.dark};
   border-bottom: 1px outset ${({ theme }) => theme.colors.dark};
+  border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.dark};
   p {
     font-size: 1.5rem;
@@ -104,6 +106,7 @@ const UserList = () => {
   const [loading, setLoading] = useState(true);
   const [edit, setEdit] = useState(false);
   const [deleted, setDeleted] = useState(false);
+  const [loader, showLoader, hideLoader] = useFullPageLoader();
 
   useLayoutEffect(() => {
     setEdit(false);
@@ -135,14 +138,7 @@ const UserList = () => {
         cidade: item.endereco.cidade,
         id: item.id,
       };
-      localStorage.setItem("stateObject", JSON.stringify(data));
-      setEdit(true);
-    }
-  };
-
-  const handleDeletion = (itemId) => {
-    axios.delete(`${endpoint}/${itemId.id}`).then((response) => {
-      toast.error(`❗ You deleted ${itemId.nome}! `, {
+      toast.success(`✏️ You are editing ${data.nome}! `, {
         position: "bottom-right",
         autoClose: 2200,
         hideProgressBar: true,
@@ -152,18 +148,45 @@ const UserList = () => {
         progress: undefined,
         transition: Flip,
       });
-      setDeleted(true);
-    });
+      localStorage.setItem("stateObject", JSON.stringify(data));
+      setEdit(true);
+    }
+  };
+
+  const handleDeletion = (itemId) => {
+    setDeleted(true);
+    showLoader();
+    axios
+      .delete(`${endpoint}/${itemId.id}`)
+      .then((response) => {
+        toast.error(`❗ You deleted ${itemId.nome}! `, {
+          position: "bottom-right",
+          autoClose: 2200,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          transition: Flip,
+        });
+        hideLoader();
+        setDeleted(false);
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleSearch = (event) => {
     const searchString = event.target.value;
     let timeout = null;
     clearTimeout(timeout);
+    showLoader();
     timeout = setTimeout(() => {
       axios
         .get(endpoint, { params: { q: searchString } })
-        .then((response) => setUserList(response.data))
+        .then((response) => {
+          setUserList(response.data);
+          hideLoader();
+        })
         .catch((error) => console.log(error));
     }, 1000);
   };
@@ -202,6 +225,7 @@ const UserList = () => {
             </UserWrapper>
           );
         })}
+        {loader}
       </OutterWrapper>
     );
   }

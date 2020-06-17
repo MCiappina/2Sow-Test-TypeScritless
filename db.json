@@ -1,45 +1,6 @@
 {
   "usuarios": [
     {
-      "nome": "Chelsey Reyna",
-      "cpf": "654.687.651-34",
-      "email": "padme@live.com",
-      "endereco": {
-        "cep": 68908841,
-        "rua": "Avenida dos Cupuaçus",
-        "numero": 87,
-        "bairro": "Infraero",
-        "cidade": "Macapá"
-      },
-      "id": 12
-    },
-    {
-      "nome": "Sarva",
-      "cpf": "654.687.456-14",
-      "email": "dkrishna@msn.com",
-      "endereco": {
-        "cep": 29706805,
-        "rua": "Rua José de Oliveira",
-        "numero": 650,
-        "bairro": "São Pedro",
-        "cidade": "Colatina"
-      },
-      "id": 22
-    },
-    {
-      "nome": "Caster Rowley",
-      "cpf": "564.842.135-46",
-      "email": "thowell@live.com",
-      "endereco": {
-        "cep": 69317295,
-        "rua": "Travessa Canaã",
-        "numero": 25,
-        "bairro": "Alvorada",
-        "cidade": "Boa Vista"
-      },
-      "id": 23
-    },
-    {
       "nome": "Krishan Espinosa",
       "cpf": "879.543.548-78",
       "email": "dougj@verizon.net",

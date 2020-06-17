@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import App from "./App";
 import GlobalStyle from "./styled/globalStyles";
 import Theme from "./styled/theme";
+import './index.css';
 
 const root = document.getElementById("root");
 

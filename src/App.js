@@ -4,6 +4,8 @@ import { toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+
+import './App.css';
 import Login from "./components/Login";
 import UserList from "./components/UserList";
 import EditScreen from "./components/EditScreen";
