@@ -11,9 +11,8 @@ To run this project:
  2. Type the following commands using the terminal, inside the project folder
  3. ```npm install -g json-server ```
  4. ```npm install```
- 5. ```npm start```
- 6. ```json-server --watch db.json --delay 2000 --port 5000```
- 7. Finally run ```npm start```.
+ 5. ```json-server --watch db.json --delay 2000 --port 5000```
+ 6. Finally run ```npm start```.
  
  ## Technologies Used
 
