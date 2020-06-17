@@ -18,6 +18,9 @@ const OutterWrapper = styled.div`
   width: 50%;
   border-radius: 5rem;
   background: ${({ theme }) => theme.colors.light};
+  @media (max-width: 1300px) {
+    width: 80%;
+  }
 `;
 
 const Title = styled.h1`
@@ -26,6 +29,18 @@ const Title = styled.h1`
   text-align: center;
   padding: 2rem;
   color: ${({ theme }) => theme.colors.lighter};
+  @media (max-width: 1300px) {
+    font-size: 2.5rem;
+  }
+  @media (max-width: 900px) {
+    font-size: 1.9rem;
+  }
+  @media (max-width: 620px) {
+    font-size: 1.4rem;
+  }
+  @media (max-width: 380px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Form = styled.form`
@@ -35,9 +50,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
-  text-transform: uppercase;
   background-color: ${({ theme }) => theme.colors.dark};
   border-radius: 1rem;
   input {
@@ -47,6 +61,15 @@ const Form = styled.form`
     height: 3rem;
     outline: none;
     text-align: center;
+    @media (max-width: 1300px) {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 900px) {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 620px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 const SubmitButton = styled.button`
@@ -64,6 +87,10 @@ const SubmitButton = styled.button`
   :hover {
     background-color: ${({ theme }) => theme.colors.darker};
     color: ${({ theme }) => theme.colors.light};
+  }
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+    width: 40%;
   }
 `;
 

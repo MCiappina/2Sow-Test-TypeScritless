@@ -1,20 +1,7 @@
 {
   "usuarios": [
     {
-      "nome": "KKWECSTASY",
-      "cpf": "415.796.543-24",
-      "email": "matheus.ciappina@gmail.com",
-      "endereco": {
-        "cep": 3066010,
-        "rua": "Rua Padre Antônio de Sá",
-        "numero": 6894,
-        "bairro": "Tatuapé",
-        "cidade": "São Paulo"
-      },
-      "id": 28
-    },
-    {
-      "nome": "MATHEUS CIAPPINA PEREIRA",
+      "nome": "MATHEUS CIA",
       "cpf": "654.984.316-54",
       "email": "matheus.ciappina@gmail.com",
       "endereco": {
