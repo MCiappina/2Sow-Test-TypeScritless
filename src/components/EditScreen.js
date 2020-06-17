@@ -1,5 +1,3 @@
-// TOAST QUANDO MANDAR PRA API E QUANDO EDITAR DENTRO DO .THEN
-
 import React, { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import axios from "axios";
@@ -11,7 +9,7 @@ import useFullPageLoader from "../hooks/useFullPageLoader";
 
 const OutterWrapper = styled.div`
   margin: 0 auto;
-  margin-top: 9vh;
+  margin-top: 13vh;
   padding: 0 1vw;
   display: flex;
   flex-direction: column;

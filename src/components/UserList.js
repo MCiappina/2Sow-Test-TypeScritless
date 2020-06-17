@@ -110,7 +110,6 @@ const UserList = () => {
 
   useLayoutEffect(() => {
     setEdit(false);
-    setDeleted(false);
     setTimeout(getApi(), 300);
     localStorage.removeItem("stateObject");
   }, [deleted]);
